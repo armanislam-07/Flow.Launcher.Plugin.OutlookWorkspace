@@ -1,0 +1,5 @@
+msal>=1.31,<2
+msal-extensions>=1.2,<2
+keyring>=25,<26
+requests>=2.32,<3
+openai>=1.66,<3

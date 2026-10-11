@@ -1,0 +1,44 @@
+name: Publish Flow Launcher release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate release tag
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: python -c "import json, os; version=json.load(open('plugin.json'))['Version']; assert os.environ['RELEASE_TAG'] == 'v'+version, 'Tag must match plugin.json Version'"
+      - name: Set repository URLs
+        env:
+          PLUGIN_REPOSITORY: ${{ github.repository }}
+        run: python scripts/configure_repository.py "$env:PLUGIN_REPOSITORY"
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Compile
+        run: python -m compileall -q main.py ui.py outlook_flow scripts
+      - name: Bundle Windows dependencies
+        run: python -m pip install -r requirements.txt --target lib
+      - name: Verify dependency imports
+        run: python -c "import sys; sys.path.insert(0, 'lib'); import msal, msal_extensions, keyring, requests, openai, tkinter"
+      - name: Build Flow installation ZIP
+        run: python scripts/package.py --release
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: gh release create "$env:RELEASE_TAG" dist/Flow.Launcher.Plugin.OutlookWorkspace.zip --verify-tag --title "Outlook Workspace $env:RELEASE_TAG" --generate-notes
+      - name: Upload store submission manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: Flow-store-submission
+          path: submission/*.json
+          if-no-files-found: error

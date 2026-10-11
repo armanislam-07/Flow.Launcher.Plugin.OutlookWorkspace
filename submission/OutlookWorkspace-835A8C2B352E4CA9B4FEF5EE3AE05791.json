@@ -1,0 +1,12 @@
+{
+  "ID": "835A8C2B352E4CA9B4FEF5EE3AE05791",
+  "Name": "Outlook Workspace",
+  "Description": "Outlook email, AI drafts, calendar and Microsoft To Do",
+  "Author": "Arman",
+  "Version": "1.0.0",
+  "Language": "python",
+  "Website": "https://github.com/armanislam-07/Flow.Launcher.Plugin.OutlookWorkspace",
+  "UrlDownload": "https://github.com/armanislam-07/Flow.Launcher.Plugin.OutlookWorkspace/releases/download/v1.0.0/Flow.Launcher.Plugin.OutlookWorkspace.zip",
+  "UrlSourceCode": "https://github.com/armanislam-07/Flow.Launcher.Plugin.OutlookWorkspace/tree/main",
+  "IcoPath": "https://cdn.jsdelivr.net/gh/armanislam-07/Flow.Launcher.Plugin.OutlookWorkspace@v1.0.0/Images/app.png"
+}
