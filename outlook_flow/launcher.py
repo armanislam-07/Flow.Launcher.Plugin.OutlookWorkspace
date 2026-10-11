@@ -31,7 +31,7 @@ class Launcher:
         command, _, term = query.strip().partition(' ')
         command = command.lower()
         if not command:
-            return [result('Search email', 'outlook mail <search>', parameters=['mail']),
+            return [result('Search email', 'ou mail <search>', parameters=['mail']),
                     result('Compose email', 'Create a draft with optional AI writing', parameters=['compose']),
                     result('Drafts', 'Edit, rewrite and send saved drafts', parameters=['drafts']),
                     result('Calendar', 'View agenda and manage events', parameters=['calendar']),

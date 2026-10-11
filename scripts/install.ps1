@@ -13,4 +13,4 @@ foreach ($name in @('main.py', 'ui.py', 'plugin.json', 'requirements.txt', 'READ
 }
 & $Python -m pip install --upgrade --target (Join-Path $destination 'lib') -r (Join-Path $destination 'requirements.txt')
 if ($LASTEXITCODE -ne 0) { throw 'Dependency installation failed.' }
-Write-Host "Installed to $destination. Set Flow Launcher's Python interpreter to the same Python executable, restart Flow, and type: outlook settings"
+Write-Host "Installed to $destination. Set Flow Launcher's Python interpreter to the same Python executable, restart Flow, and type: ou settings"

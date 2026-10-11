@@ -9,7 +9,7 @@ After a GitHub Release is published, install its `Flow.Launcher.Plugin.OutlookWo
 1. Install Windows Python 3.10+ with Tcl/Tk and pip. Use the same interpreter in Flow Launcher Settings → General → Python. Flow Launcher runs on Windows; macOS can run the unit tests but cannot host Flow Launcher.
 2. Extract the distribution or clone this folder.
 3. In PowerShell run `powershell -ExecutionPolicy Bypass -File .\scripts\install.ps1 -Python python`. For portable/custom Flow installations pass `-PluginRoot 'C:\path\to\FlowLauncher\Plugins'`.
-4. Restart Flow Launcher. Type `outlook settings` and press Enter.
+4. Restart Flow Launcher. Type `ou settings` and press Enter.
 
 The installer copies source and installs dependencies into the plugin's `lib` directory. Updating replaces plugin code and preserves account configuration in `%LOCALAPPDATA%\FlowOutlookWorkspace`. Do not copy the dependencies from a different OS or Python version.
 
@@ -30,17 +30,17 @@ Account tokens use Microsoft MSAL Extensions with OS encryption (Windows DPAPI) 
 
 | Command | Behavior |
 | --- | --- |
-| `outlook` | Feature menu |
-| `outlook mail invoice` | Search Inbox with Microsoft Graph full-text search |
-| `outlook inbox` | Recent Inbox messages |
-| `outlook sent Alex` | Search Sent Items |
-| `outlook drafts` | Open saved drafts for editing / sending |
-| `outlook compose` | New draft editor |
-| `outlook ai write a polite follow-up` | Composer with a writing request prefilled |
-| `outlook calendar` | Next seven days, including recurring occurrences |
-| `outlook calendar planning` | Filter agenda titles |
-| `outlook tasks` / `outlook todo` | Select a Microsoft To Do list |
-| `outlook settings` | Configuration, browser sign-in, sign-out |
+| `ou` | Feature menu |
+| `ou mail invoice` | Search Inbox with Microsoft Graph full-text search |
+| `ou inbox` | Recent Inbox messages |
+| `ou sent Alex` | Search Sent Items |
+| `ou drafts` | Open saved drafts for editing / sending |
+| `ou compose` | New draft editor |
+| `ou ai write a polite follow-up` | Composer with a writing request prefilled |
+| `ou calendar` | Next seven days, including recurring occurrences |
+| `ou calendar planning` | Filter agenda titles |
+| `ou tasks` / `ou todo` | Select a Microsoft To Do list |
+| `ou settings` | Configuration, browser sign-in, sign-out |
 
 Enter opens the selected result. Email context menus provide reply, reply-all, forward and management shortcuts. The mailbox editor also browses Inbox, Drafts, Sent Items, Archive, and Deleted Items. A search returns up to 60 messages; tasks and calendar lists return up to 200 items. Search results depend on Microsoft's mailbox indexing.
 
